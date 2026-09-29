@@ -507,8 +507,6 @@ def preview_template_sync(
 async def preview_template_by_id(
     _client_config: ClientConfig,
     id: int,
-    template_type: str | NotGiven = NOT_GIVEN,
-    body: str | NotGiven = NOT_GIVEN,
     *,
     request_options: RequestOptions | None = None,
 ) -> str:
@@ -519,22 +517,11 @@ async def preview_template_by_id(
 
     Args:
         id: The id value of the template you want to get.
-        template_type: type of template
-        body: template body
     """
 
     _resp = await sdk_request(
         "GET",
         f"/templates/{encode_path_segment(id)}/preview",
-        json=omit_unset(
-            {
-                "template_type": (
-                    NOT_GIVEN if template_type is NOT_GIVEN else to_wire(template_type, "str")
-                ),
-                "body": (NOT_GIVEN if body is NOT_GIVEN else to_wire(body, "str")),
-            }
-        ),
-        content_type="application/x-www-form-urlencoded",
         operation_id="preview_template_by_id",
         response_decoder="text",
         request_options=request_options,
@@ -546,8 +533,6 @@ async def preview_template_by_id(
 def preview_template_by_id_sync(
     _client_config: ClientConfig,
     id: int,
-    template_type: str | NotGiven = NOT_GIVEN,
-    body: str | NotGiven = NOT_GIVEN,
     *,
     request_options: RequestOptions | None = None,
 ) -> str:
@@ -558,22 +543,11 @@ def preview_template_by_id_sync(
 
     Args:
         id: The id value of the template you want to get.
-        template_type: type of template
-        body: template body
     """
 
     _resp = sdk_request_sync(
         "GET",
         f"/templates/{encode_path_segment(id)}/preview",
-        json=omit_unset(
-            {
-                "template_type": (
-                    NOT_GIVEN if template_type is NOT_GIVEN else to_wire(template_type, "str")
-                ),
-                "body": (NOT_GIVEN if body is NOT_GIVEN else to_wire(body, "str")),
-            }
-        ),
-        content_type="application/x-www-form-urlencoded",
         operation_id="preview_template_by_id",
         response_decoder="text",
         request_options=request_options,

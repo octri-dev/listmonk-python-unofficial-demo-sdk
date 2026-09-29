@@ -2701,14 +2701,10 @@
       "mode": "normal",
       "owner": "templates",
       "arguments": {
-        "id": 1,
-        "template_type": "template_type",
-        "body": "sample"
+        "id": 1
       },
       "argumentOrder": [
-        "id",
-        "template_type",
-        "body"
+        "id"
       ],
       "response": {
         "kind": "text",
